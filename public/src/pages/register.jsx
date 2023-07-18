@@ -70,6 +70,7 @@ const handleChange = (event) => {
             <h1>snappy</h1>
           </div>
           <input
+          
             type="text"
             placeholder="Username"
             name="username"
