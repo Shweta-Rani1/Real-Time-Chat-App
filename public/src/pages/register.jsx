@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-//import axios from "axios";
+import axios from "axios";
 import styled from "styled-components";
-import {  Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Logo from "../assets/logo.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,7 +23,14 @@ function register() {
   }
     const handleSubmit = async (event) => {
         event.preventDefault();
-        handleValidation();
+       
+        if (handleValidation()) {
+          const { email, username, password } = values;
+          const { data } = await axios.post(registerRoute, {
+            username,
+            email,
+            password,
+          });
     
 };
 
